@@ -32,14 +32,7 @@ const result = cleaned_input.reduce((total, current, index) => {
       }
     });
   });
-  if (
-    max_red <= limit.red &&
-    max_green <= limit.green &&
-    max_blue <= limit.blue
-  ) {
-    return total + index + 1;
-  }
-  return total;
+  return total + max_red * max_blue * max_green;
 }, 0);
 
 console.log(result);
