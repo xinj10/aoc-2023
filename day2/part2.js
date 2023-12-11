@@ -9,7 +9,7 @@ const cleaned_input = input
   .map((l) => l.map((s) => s.trim().split(",")));
 console.log(cleaned_input);
 
-const result = cleaned_input.reduce((total, current, index) => {
+const result = cleaned_input.reduce((total, current) => {
   let max_red = 0;
   let max_green = 0;
   let max_blue = 0;
