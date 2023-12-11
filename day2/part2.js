@@ -1,7 +1,5 @@
 import { readFileSync } from "node:fs";
 
-const limit = { red: 12, green: 13, blue: 14 };
-
 const input = readFileSync("./day2/input.txt", "utf-8").split("\n");
 const cleaned_input = input
   .map((i) => i.split(":").at(1).trim())
