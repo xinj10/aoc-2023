@@ -1,8 +1,7 @@
-import { readFile } from "node:fs";
-
+const fs = require("fs");
 const isDigit = (c) => /^\d$/.test(c);
 
-readFile("./day1/input.txt", "utf-8", (err, data) => {
+fs.readFile("./day1/input.txt", "utf-8", (err, data) => {
   if (err) {
     console.error(err);
     return 0;

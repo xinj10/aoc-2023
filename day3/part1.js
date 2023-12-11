@@ -1,6 +1,7 @@
-import { readFileSync } from "fs";
+const fs = require("fs");
 
-const input = readFileSync("./day3/input.txt", "utf-8")
+const input = fs
+  .readFileSync("./day3/input.txt", "utf-8")
   .split("\n")
   .map((row) => row.split(""));
 const nRow = input.length;

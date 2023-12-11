@@ -1,5 +1,4 @@
-import { readFileSync } from "node:fs";
-
+const fs = require("fs");
 const numDict = {
   o: ["one"],
   t: ["two", "three"],
@@ -46,7 +45,7 @@ function parseData(data) {
   return data;
 }
 
-function solve(data){
+function solve(data) {
   data = parseData(data);
   return data.reduce((total, current) => {
     const legalNumbers = interpret(current).map((num) =>
@@ -56,5 +55,5 @@ function solve(data){
   }, 0);
 }
 
-const data = readFileSync("./day1/input.txt", "utf-8");
+const data = fs.readFileSync("./day1/input.txt", "utf-8");
 console.log(solve(data));
