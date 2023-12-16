@@ -1,6 +1,6 @@
+import functools
 import os
 import re
-import functools
 
 input_path = "input.txt"
 
