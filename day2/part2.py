@@ -3,7 +3,6 @@ import os
 import re
 
 input_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "input.txt")
-LIMITS = {"red": 12, "green": 13, "blue": 14}
 
 
 def parse_game(game: str) -> list[dict[str, int]]:
@@ -28,24 +27,17 @@ with open(input_path, "r") as f:
     games = list(map(parse_game, f.readlines()))
 
 
-def solve(acc: int, elem: tuple[int, list[dict[str, int]]]) -> int:
-    idx, game = elem
-    max_red = 0
-    max_green = 0
-    max_blue = 0
+def solve(acc: int, elem: list[dict[str, int]]) -> int:
+    max_red = 1
+    max_green = 1
+    max_blue = 1
 
-    for cards in game:
+    for cards in elem:
         max_red = max(max_red, cards.get("red", 0))
         max_green = max(max_green, cards.get("green", 0))
         max_blue = max(max_blue, cards.get("blue", 0))
 
-    if (
-        max_red <= LIMITS["red"]
-        and max_green <= LIMITS["green"]
-        and max_blue <= LIMITS["blue"]
-    ):
-        acc += idx
-    return acc
+    return acc + max_red * max_green * max_blue
 
 
-print(functools.reduce(solve, enumerate(games, start=1), 0))
+print(functools.reduce(solve, games, 0))
